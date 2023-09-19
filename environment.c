@@ -58,7 +58,7 @@ int env_set_key(char *key, char *value, data_of_program *data)
 		}
 	}
 
-	data->env[i] = str_concat(str_duplicate(key), "=");
+	data->env[i] = str_concat(str_dup(key), "=");
 	data->env[i] = str_concat(data->env[i], value);
 
 	if (is_new_key)

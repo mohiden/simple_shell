@@ -1,4 +1,4 @@
-#include "shell.h`"
+#include "shell.h"
 
 /**
  * long_to_string - converts a number to a string.
@@ -51,7 +51,7 @@ int _atoi(char *s)
 	while (!('0' <= *s && *s <= '9') && *s != '\0')
 	{
 		if (*s == '-')
-			sign *= -1;
+			t *= -1;
 		if (*s == '+')
 			t *= +1;
 		s++;

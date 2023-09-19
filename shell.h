@@ -50,12 +50,12 @@ typedef struct builtins
 	int (*function)(data_of_program *data);
 } builtins;
 
-
+/* main.c */
 void inicialize_data(data_of_program *data, int arc, char *argv[], char **env);
 
-void sisifo(char *prompt, data_of_program *data);
+void inf_loop(char *prompt, data_of_program *data);
 
-void handle_ctrl_c(int opr UNUSED);
+void handle_ctrl(int opr UNUSED);
 
 
 int _getline(data_of_program *data);
@@ -80,27 +80,28 @@ char **tokenize_path(data_of_program *data);
 
 int find_program(data_of_program *data);
 
-void free_array_of_pointers(char **directories);
+void free_array(char **directories);
 
-void free_recurrent_data(data_of_program *data);
+void free_recurrent(data_of_program *data);
 
-void free_all_data(data_of_program *data);
+void free_all(data_of_program *data);
 
-int builtin_exit(data_of_program *data);
 
-int builtin_cd(data_of_program *data);
+int b_exit(data_of_program *data);
+
+int _cd(data_of_program *data);
 
 int set_work_directory(data_of_program *data, char *new_dir);
 
-int builtin_help(data_of_program *data);
+int _help(data_of_program *data);
 
-int builtin_alias(data_of_program *data);
+int _alias(data_of_program *data);
 
-int builtin_env(data_of_program *data);
+int _env(data_of_program *data);
 
-int builtin_set_env(data_of_program *data);
+int _set_env(data_of_program *data);
 
-int builtin_unset_env(data_of_program *data);
+int _unset_env(data_of_program *data);
 
 char *env_get_key(char *name, data_of_program *data);
 
@@ -108,6 +109,7 @@ int env_set_key(char *key, char *value, data_of_program *data);
 
 int env_remove_key(char *key, data_of_program *data);
 
+/* print functions */
 void print_environ(data_of_program *data);
 
 int _print(char *string);
@@ -116,26 +118,24 @@ int _printe(char *string);
 
 int _print_error(int errorcode, data_of_program *data);
 
-
+/* string manipulation */
 int str_length(char *string);
 
-char *str_duplicate(char *string);
+char *str_dup(char *string);
 
-int str_compare(char *string1, char *string2, int number);
+int str_comp(char *string1, char *string2, int number);
 
 char *str_concat(char *string1, char *string2);
 
 void str_reverse(char *string);
 
-
-
 void long_to_string(long number, char *string, int base);
 
 int _atoi(char *s);
 
-int count_characters(char *string, char *character);
+int count_char(char *string, char *c);
 
-
+/*  Alias */
 int print_alias(data_of_program *data, char *alias);
 
 char *get_alias(data_of_program *data, char *alias);

@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _exit - exit of the program with the status
+ * b_exit - exit of the program with the status
  * @data: struct for the program's data
  * Return: zero if sucess, or other number if its declared in the arguments
  */
 
-int _exit(data_of_program *data)
+int b_exit(data_of_program *data)
 {
 	int i;
 
@@ -21,7 +21,7 @@ int _exit(data_of_program *data)
 			}
 		errno = _atoi(data->tokens[1]);
 	}
-	free_all_data(data);
+	free_all(data);
 	exit(errno);
 }
 
@@ -149,7 +149,7 @@ int _alias(data_of_program *data)
 
 	while (data->tokens[++i])
 	{
-		if (count_characters(data->tokens[i], "="))
+		if (count_char(data->tokens[i], "="))
 			set_alias(data->tokens[i], data);
 		else
 			print_alias(data, data->tokens[i]);

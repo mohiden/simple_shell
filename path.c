@@ -40,13 +40,13 @@ int find_program(data_of_program *data)
 			errno = 0;
 			free(data->tokens[0]);
 			data->tokens[0] = str_dup(dirs[i]);
-			free_array_of_pointers(dirs);
+			free_array(dirs);
 			return (ret_code);
 		}
 	}
 	free(data->tokens[0]);
 	data->tokens[0] = NULL;
-	free_array_of_pointers(dirs);
+	free_array(dirs);
 	return (ret_code);
 }
 

@@ -11,7 +11,7 @@ int builtins_list(data_of_program *data)
 {
 	int i;
 	builtins options[] = {
-		{"exit", _exit},
+		{"exit", b_exit},
 		{"help", _help},
 		{"cd", _cd},
 		{"alias", _alias},
