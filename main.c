@@ -51,7 +51,7 @@ void inicialize_data(data_of_program *data, int argc, char *argv[], char **env)
 	data->input_line = NULL;
 	data->command_name = NULL;
 	data->exec_counter = 0;
-	
+
 	if (argc == 1)
 		data->file_descriptor = STDIN_FILENO;
 	else
@@ -102,7 +102,7 @@ void inf_loop(char *prompt, data_of_program *data)
 		if (error_code == EOF)
 		{
 			free_all(data);
-			exit(errno); 
+			exit(errno);
 		}
 		if (string_len >= 1)
 		{
@@ -110,7 +110,7 @@ void inf_loop(char *prompt, data_of_program *data)
 			expand_variables(data);
 			tokenize(data);
 			if (data->tokens[0])
-			{ 
+			{
 				error_code = execute(data);
 				if (error_code != 0)
 					_print_error(error_code, data);
